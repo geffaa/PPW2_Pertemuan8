@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>index</title>
-    <!-- Tautan Bootstrap CSS versi 5 -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
 </head>
 <body>
@@ -20,7 +20,7 @@
             display: inline; margin-top: 10px; margin-bottom: 10px; float: left;">
         </form>
         <table class="table table-striped">
-            <thead class="bg-light">
+            <thead class="bg-dark">
                 <tr>
                     <th>ID</th>
                     <th>Judul Buku</th>
@@ -42,31 +42,29 @@
     <form action="{{ route('buku.destroy', $buku->id) }}" method="post">
         @csrf
         @method('DELETE')
-        <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Yakin mau dihapus?')">
+        <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Yakin mau dihapus?')" style="margin-bottom: 5px; margin-top: 5px;">
             <i class="fas fa-trash"></i> Hapus
         </button>
     </form>
     <form action="{{ route('buku.edit', $buku->id) }}" method="post">
         @csrf
         @method('PUT')
-        <button type="submit" class="btn btn-success btn-sm">
+        <button type="submit" class="btn btn-success btn-sm" style="margin-bottom: 5px; margin-top: 5px;">
             <i class="fas fa-edit"></i> Update
         </button>
     </form>
 </td>
-
                 </tr>
                 @endforeach
             </tbody>
         </table>
         <div>{{ $data_buku->links() }}</div>
-        <!-- <div><strong>Jumlah Buku: {{ $jumlahData }}</strong></div> -->
+
         <p class="mt-3">Jumlah Data: {{ $jumlahData }}</p>
         <p>Total Harga: Rp {{ number_format($totalHarga, 2) }}</p>
         <p><a href="{{ route('buku.create') }}" class="btn btn-primary">Tambah Buku</a></p>
     </div>
 
-    <!-- Tautan Bootstrap JavaScript (Jika diperlukan) -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
 </html>
